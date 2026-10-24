@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u2tool-wordcloud — Free Online Word Cloud Generator</title>
+    <meta
+      name="description"
+      content="Free, open-source word cloud generator. Paste text or edit words manually, pick a shape and theme, export PNG or SVG — everything runs in your browser."
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>u2tool-wordcloud</h1>
+        <p>Free word cloud generator · runs 100% in your browser · MIT</p>
+      </div>
+      <button id="dark-toggle">Light / Dark</button>
+    </header>
+
+    <main>
+      <div>
+        <div class="panel">
+          <h2>Chart settings</h2>
+          <label for="title-input">Title</label>
+          <input id="title-input" type="text" value="My Word Cloud" />
+          <div class="grid-2">
+            <div>
+              <label for="theme-select">Color theme</label>
+              <select id="theme-select">
+                <option value="default">Default</option>
+                <option value="ocean">Ocean</option>
+                <option value="sunset">Sunset</option>
+                <option value="rainbow">Rainbow</option>
+              </select>
+            </div>
+            <div>
+              <label for="shape-select">Shape</label>
+              <select id="shape-select">
+                <option value="circle">Circle</option>
+                <option value="cardioid">Cardioid</option>
+                <option value="diamond">Diamond</option>
+                <option value="triangle">Triangle</option>
+                <option value="star">Star</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-3">
+            <div>
+              <label for="min-font">Min font</label>
+              <input id="min-font" type="number" value="12" min="8" max="30" />
+            </div>
+            <div>
+              <label for="max-font">Max font</label>
+              <input id="max-font" type="number" value="60" min="40" max="100" />
+            </div>
+            <div>
+              <label for="rotation">Rotation ±°</label>
+              <input id="rotation" type="number" value="45" min="0" max="90" />
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Generate from text</h2>
+          <textarea id="text-input" placeholder="Paste any text — English, 中文, or mixed. Word frequencies are computed locally."></textarea>
+          <div class="toolbar" style="margin-top: 8px">
+            <button id="generate" class="primary">Generate word cloud</button>
+            <button id="load-sample">Load sample</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Words</h2>
+          <div id="word-list"></div>
+          <div class="toolbar" style="margin-top: 8px">
+            <button id="add-word">+ Add word</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="toolbar">
+          <button id="export-png" class="primary">Download PNG</button>
+          <button id="export-svg">Download SVG</button>
+        </div>
+        <div id="chart"></div>
+      </div>
+    </main>
+
+    <footer>
+      Part of the <a href="https://www.u2tool.com/" rel="noopener">U2Tool</a> open-source tool family —
+      try the full in-site version at <a href="https://www.u2tool.com/zh/tools/wordcloud-generator/" rel="noopener">词云图在线生成器</a>
+      (10 languages, more chart tools at the <a href="https://www.u2tool.com/en/tools/" rel="noopener">U2Tool tool directory</a>).
+      Word cloud rendering by <a href="https://echarts.apache.org/" rel="noopener">Apache ECharts</a> + echarts-wordcloud.
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
